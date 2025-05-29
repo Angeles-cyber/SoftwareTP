@@ -29,7 +29,6 @@
         .main-container {
             max-width: 1200px;
             margin: auto;
-            background-color: rgba(255, 255, 255, 0.95);
             padding: 40px;
             border-radius: 12px;
         }
@@ -48,8 +47,8 @@
     </nav>
 
     <!-- Sección Principal -->
-    <div class="container main-center">
-        <h2 class="text-center mb-5">Acceso Rápido</h2>
+    <div class="container main-container">
+        <h2 class="text-center mb-5">SELECCIONE A DONDE QUIERE REDIRIGIRSE </h2>
         <div class="row g-4">
             <!-- Vacunas -->
             <div class="col-md-4">
@@ -78,7 +77,7 @@
                 <div class="card bg-success text-white text-center">
                     <div class="card-body">
                         <h5 class="card-title">Doctores</h5>
-                        <img src="../../img/Doctor.icon.png" alt="doctores" style="width: 55%">
+                        <img src="../../img/Doctor.icon.png" alt="doctores" style="width: 49%">
                         <p class="card-text mt-2">Consulta y gestiona la información de doctores.</p>
                         <button class="btn btn-light mt-2" onclick="window.location.href='doctores.php'">Acceder</button>
                     </div>

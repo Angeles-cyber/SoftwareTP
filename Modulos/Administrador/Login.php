@@ -43,48 +43,68 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             margin: 0;
             padding: 0;
             font-family: 'Segoe UI', sans-serif;
-            background: linear-gradient(to bottom,rgba(0, 110, 255, 0.84) 40%, #eeeeee 40%);
             height: 100vh;
+            background: url('../../img/fondoadm.jpeg') no-repeat center center fixed;
+            background-size: cover;
         }
 
         .contenedor-login {
-            text-align: center;
-            padding-top: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
 
-        .titulo-principal {
-            color: white;
-            font-size: 24px;
-            margin-bottom: 40px;
+        .contenido-principal {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* Alínea todo a la izquierda */
+            gap: 20px;
         }
 
-        .login-box {
-            background-color: white;
-            width: 350px;
-            margin: 0 auto;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0px 10px 20px rgba(0,0,0,0.2);
+        .texto-bienvenida {
+            color: rgb(0, 0, 0);
+            text-align: left;
+            margin-left: 35px;
+        }
+
+        .texto-bienvenida h2 {
+            font-size: 100px;
+            margin: -350px;
+            margin-top: -600px;
+            font-weight: bold;
+        }
+
+        .texto-bienvenida h4 {
+            font-size: 16px;
+            margin: 50px 0 0;
+        }
+
+        .login-wrapper {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            width: 450px;
         }
 
         .titulo-secundario {
             margin-bottom: 25px;
-            font-size: 20px;
+            font-size: 50px;
             color: #222;
+            text-align: center;
         }
 
         form {
             display: flex;
             flex-direction: column;
-            align-items: stretch;
         }
 
         label {
-            text-align: left;
             font-weight: bold;
-            margin-top: 15px;
-            margin-bottom: 5px;
+            margin: 10px 0 5px;
             color: #444;
+            text-align: left;
         }
 
         input[type="text"],
@@ -94,21 +114,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             border-radius: 5px;
         }
 
-        .enlace {
-            text-align: right;
-            margin-top: 10px;
-        }
-
-        .enlace a {
-            font-size: 13px;
-            color:rgba(0, 110, 255, 0.84);
-            text-decoration: none;
-        }
-
         .btn-login {
             margin-top: 20px;
             padding: 12px;
-            background-color: rgba(0, 110, 255, 0.84);
+            background-color: rgb(17, 162, 124);
             color: white;
             border: none;
             border-radius: 5px;
@@ -118,25 +127,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         .btn-login:hover {
-            background-color:rgb(84, 152, 240);
+            background-color: rgb(63,180,140);
         }
 
         .mensaje {
             margin-top: 15px;
             color: red;
             font-weight: bold;
+            text-align: center;
         }
-    </style>
+</style>
 </head>
 <body>
 
 <div class="contenedor-login">
-    <h2 class="titulo-principal">BIENVENIDO ADMINISTRADOR – </h2>
-    <H3>GESTOR DE VACUNAS</H3>
+    <div class="texto-bienvenida">
+        <h2>BIENVENIDO ADMINISTRADOR </h2>
+    </div>
 
-    <div class="login-box">
+    <div class="login-wrapper">
         <h2 class="titulo-secundario">🧑‍💼 Iniciar sesión</h2>
-        <img src="" alt="">
 
         <?php if (!empty($mensaje)) echo "<div class='mensaje'>$mensaje</div>"; ?>
 
