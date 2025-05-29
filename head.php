@@ -6,7 +6,7 @@
     <?php include('Conexion.php')?>
     <style>
         body {
-            background: url('Fondo/FondoPrincipal.jpg') no-repeat center center fixed;
+            background: url('img/fondoprin.jpeg') no-repeat center center fixed;
             background-size: cover;
             height: 100vh;
             display: flex;
