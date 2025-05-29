@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campañas de Vacunación</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <header class="bg-primary text-white text-center py-3">
+        <h1>Campañas de Vacunación</h1>
+    </header>
+
+    <main class="container my-4">
+        <h2 class="text-center mb-4">Tabla de Campañas Activas</h2>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Vacuna</th>
+                        <th>Fecha</th>
+                        <th>Ubicación</th>
+                        <th>Disponibilidad</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>COVID-19</td>
+                        <td>12/12/2024</td>
+                        <td>Centro de Salud Los Pinos</td>
+                        <td>Disponible</td>
+                        <td>
+                            <button class="btn btn-success btn-sm me-2">Registrar Cita</button>
+                            <button class="btn btn-info btn-sm">Ver Descripción</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Influenza</td>
+                        <td>15/12/2024</td>
+                        <td>Centro de Salud Central</td>
+                        <td>No Disponible</td>
+                        <td>
+                            <button class="btn btn-secondary btn-sm me-2" disabled>Registrar Cita</button>
+                            <button class="btn btn-info btn-sm">Ver Descripción</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="alert alert-warning mt-4">
+            <i class="fa fa-info-circle"></i> Si una vacuna no está disponible, podrá agendarse a futuro en esta misma página.
+        </div>
+
+        <section class="mt-5">
+            <h3 class="mb-3">Indicaciones Generales</h3>
+            <ol>
+                <li>Revise la disponibilidad de la vacuna antes de registrar una cita.</li>
+                <li>Use el botón <strong>Registrar Cita</strong> para agendar en campañas activas.</li>
+                <li>Si no hay disponibilidad, regrese más tarde para programar una cita.</li>
+            </ol>
+        </section>
+    </main>
+
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2024 Sistema de Gestión de Vacunación. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
