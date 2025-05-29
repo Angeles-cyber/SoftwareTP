@@ -52,44 +52,46 @@ include('../../Conexion.php');
     </nav>
 
     <!-- Contenedor de Tabla -->
-    <div class="container mt-9">
-        <h2 class="text-center mb-1">Listado de Pacientes</h2>
-        <div class="d-flex justify-content-end mb-3">
-        </div>
-        <table class="table table-striped table-hover">
+        <div class="container mt-9">
+            <h2 class="text-center mb-1">Listado de Doctores disponibles</h2>
+            <div class="d-flex justify-content-end mb-3">
+            </div>
+            <table class="table table-striped table-hover">
             <thead class="table-dark">
-                <tr>
-                    <th>Nombre y Apellidos</th>
-                    <th>Tipo de Documento</th>
-                    <th>Numero de Documento</th>
-                    <th>Fecha de Nacimiento</th>
-                    <th>Celular</th>
-                    <th>Correo</th>
-                    <th>Tipo de Seguro</th>
-                    <th>Contraseña</th>
-                </tr>
+        <tr>
+            <th>Nombre del Doctor</th>
+            <th>Especialida</th>
+            <th>Telefono</th>
+            <th>Horas de Trabajo</th>
+            <th>Dias de Trabajo</th>
+            <th>Disponibilidad</th>
+        </tr>
             </thead>
             <tbody>
                 <?php 
-                $servicios = $link->query("SELECT * FROM paciente");
+                $servicios = $link->query("SELECT * FROM doctores");
 
                 if ($servicios && $servicios->num_rows > 0) {
                     while ($row = $servicios->fetch_assoc()) {
                         echo "<tr>";
-                        echo "<td>" . $row["NombreApe"] . "</td>";
-                        echo "<td>" . $row["TipoDocumento"] . "</td>";
-                        echo "<td>" . $row["NumDocumento"] . "</td>";
-                        echo "<td>" . $row["FechaNacimiento"] . "</td>";
-                        echo "<td>" . $row["Celular"] . "</td>";
-                        echo "<td>" . $row["Correo"] . "</td>";
-                        echo "<td>" . $row["TipoSeguro"] . "</td>";
-                        echo "<td>" . $row["Contraseña"] . "</td>";
+                        echo "<td>" . $row["Nombre"] . "</td>";
+                        echo "<td>" . $row["Especialidad"] . "</td>";
+                        echo "<td>" . $row["Telefono"] . "</td>";
+                        echo "<td>" . $row["horasdeTrabajo"] . "</td>";
+                        echo "<td>" . $row["DiasdeTrabajo"] . "</td>";
+
+                        // Generar disponibilidad aleatoria
+                        $disponible = rand(0, 1);
+                        $estadoTexto = $disponible ? "Disponible" : "No disponible";
+                        $estadoClase = $disponible ? "success" : "danger";
+
                         echo "<td>
-                              </td>";
+                                <span class='badge bg-$estadoClase'>$estadoTexto</span>
+                            </td>";
                         echo "</tr>";
                     }
                 } else {
-                    echo "<tr><td colspan='5' class='text-center'>No se encontraron registros.</td></tr>";
+                    echo "<tr><td colspan='6' class='text-center'>No se encontraron registros.</td></tr>";
                 }
                 ?>
             </tbody>

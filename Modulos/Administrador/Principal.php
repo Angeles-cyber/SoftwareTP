@@ -83,6 +83,7 @@
                     </div>
                 </div>
             </div>
+                <button class="btn btn-warning mt-2" onclick="window.location.href='../../index.php'">Regresar</button>
         </div>
     </div>
 

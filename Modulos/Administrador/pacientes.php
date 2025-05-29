@@ -59,6 +59,7 @@ include('../../Conexion.php');
         <table class="table table-striped table-hover">
             <thead class="table-dark">
                 <tr>
+                    <th>ID</th>
                     <th>Nombre y Apellidos</th>
                     <th>Tipo de Documento</th>
                     <th>Numero de Documento</th>
@@ -76,6 +77,7 @@ include('../../Conexion.php');
                 if ($servicios && $servicios->num_rows > 0) {
                     while ($row = $servicios->fetch_assoc()) {
                         echo "<tr>";
+                        echo "<td>" . $row["id"] . "</td>";
                         echo "<td>" . $row["NombreApe"] . "</td>";
                         echo "<td>" . $row["TipoDocumento"] . "</td>";
                         echo "<td>" . $row["NumDocumento"] . "</td>";
