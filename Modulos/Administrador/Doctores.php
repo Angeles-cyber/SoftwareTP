@@ -74,7 +74,7 @@ include('../../Conexion.php');
                 if ($servicios && $servicios->num_rows > 0) {
                     while ($row = $servicios->fetch_assoc()) {
                         echo "<tr>";
-                        echo "<td>" . $row["Nombre"] . "</td>";
+                        echo "<td>" . $row["NombreDoc"] . "</td>";
                         echo "<td>" . $row["Especialidad"] . "</td>";
                         echo "<td>" . $row["Telefono"] . "</td>";
                         echo "<td>" . $row["horasdeTrabajo"] . "</td>";
