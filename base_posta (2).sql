@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-05-2025 a las 07:14:31
+-- Tiempo de generación: 30-05-2025 a las 03:50:24
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `cita` (
-  `IdCita` varchar(50) CHARACTER SET utf8 COLLATE utf8_spanish2_ci NOT NULL,
+  `IdCita` int(11) NOT NULL,
   `Fecha` varchar(50) CHARACTER SET utf8 COLLATE utf8_spanish2_ci NOT NULL,
   `Dia` varchar(50) CHARACTER SET utf8 COLLATE utf8_spanish2_ci NOT NULL,
   `NombreDoctor` varchar(50) CHARACTER SET utf8 COLLATE utf8_spanish2_ci NOT NULL,
@@ -44,8 +44,8 @@ CREATE TABLE `cita` (
 --
 
 INSERT INTO `cita` (`IdCita`, `Fecha`, `Dia`, `NombreDoctor`, `Especialidad`, `HoradeAtencion`, `Aviso`, `NombredelPaciente`, `NumDocumento`) VALUES
-('1', '2024-10-25', 'viernes', 'Cardiología', '', '11:27', 'Llegar 30 min antes para pasar por TRIAGE', 'Marco Chavez', '71514119'),
-('1', '2024-10-25', 'viernes', 'Cardiología', '', '19:37', 'Llegar 30 min antes para pasar por TRIAGE', 'Luis Angeles', '71514119');
+(1, '2025-05-29', 'jueves', 'Dr. Juan Pérez', 'Cardiología', '18:34', 'Se espera que la cita medica se lleve a cabo ', 'Luis', '71418624'),
+(4, '2025-05-29', 'Jueves', 'Dr. Juan Pérez', 'Cardiología', '19:31', 'gykjghjfhjui', 'Diego', '7894563');
 
 -- --------------------------------------------------------
 
@@ -54,8 +54,8 @@ INSERT INTO `cita` (`IdCita`, `Fecha`, `Dia`, `NombreDoctor`, `Especialidad`, `H
 --
 
 CREATE TABLE `doctores` (
-  `Id` int(50) NOT NULL,
-  `Nombre` varchar(50) CHARACTER SET utf8 COLLATE utf8_spanish2_ci NOT NULL,
+  `IdDoc` int(50) NOT NULL,
+  `NombreDoc` varchar(50) CHARACTER SET utf8 COLLATE utf8_spanish2_ci NOT NULL,
   `Especialidad` varchar(50) CHARACTER SET utf8 COLLATE utf8_spanish2_ci NOT NULL,
   `Telefono` int(50) NOT NULL,
   `horasdeTrabajo` varchar(50) CHARACTER SET utf8 COLLATE utf8_spanish2_ci NOT NULL,
@@ -66,7 +66,7 @@ CREATE TABLE `doctores` (
 -- Volcado de datos para la tabla `doctores`
 --
 
-INSERT INTO `doctores` (`Id`, `Nombre`, `Especialidad`, `Telefono`, `horasdeTrabajo`, `DiasdeTrabajo`) VALUES
+INSERT INTO `doctores` (`IdDoc`, `NombreDoc`, `Especialidad`, `Telefono`, `horasdeTrabajo`, `DiasdeTrabajo`) VALUES
 (1, 'Dr. Juan Pérez', 'Cardiología', 987654321, '8 horas', 'Lun, Mier, Vier'),
 (2, 'Dra. María López', 'Dermatología', 912345678, '6 horas', 'Mar, Jue, Sab'),
 (3, 'Dr. Carlos Gómez', 'Pediatría', 923456789, '7 horas', 'Lun, Jue, Dom'),
@@ -97,9 +97,9 @@ CREATE TABLE `paciente` (
 --
 
 INSERT INTO `paciente` (`id`, `NombreApe`, `TipoDocumento`, `NumDocumento`, `FechaNacimiento`, `Celular`, `Correo`, `TipoSeguro`, `Contraseña`) VALUES
-(1, 'Angeles Mendoza Luis del Piero', 'DNI', 71418624, '20 de Julio 2004', 987709074, 'luisangeles@gmail.com', 'SIS', '203006'),
 (2, 'Milagros Gonzales Andres', 'DNI', 61801571, '22 de enero 2004', 913850263, 'gonzalesmilagros258@gmail.com', 'SIS', '220104'),
-(3, 'Jarol Arriea', 'DNI', 71427186, '05/09/2004', 967743623, 'srrietaramirezjarol9', 'SIS', '123456789');
+(3, 'Jarol Arriea', 'DNI', 71427186, '05/09/2004', 967743623, 'srrietaramirezjarol9', 'SIS', '123456789'),
+(6, 'Luis del Piero Angeles Mendoza', 'DNI', 71418624, '2004-07-20', 987709074, 'luis20angeles08@gmail.com', 'SIS', '203006');
 
 -- --------------------------------------------------------
 
@@ -156,12 +156,17 @@ INSERT INTO `vacunas` (`id`, `Nombre`, `Fabricante`, `Vacu_disp`, `FechaCad`) VA
 (6, 'Tétanos', 'Merck', 3, '2027-01-01'),
 (7, 'Sarampión-Rubeola-Paperas (SRP)', 'Serum Institute', 2, '2026-05-20'),
 (8, 'Varicela', 'Bio Farma', 2, '2025-09-10'),
-(9, 'COVID-19 AstraZeneca', 'AstraZeneca', 2, '2025-08-15'),
-(10, 'Rabia', 'Bharat Biotech', 5, '2026-12-12');
+(9, 'COVID-19 AstraZeneca', 'AstraZeneca', 2, '2025-08-15');
 
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `cita`
+--
+ALTER TABLE `cita`
+  ADD PRIMARY KEY (`IdCita`);
 
 --
 -- Indices de la tabla `paciente`
@@ -180,10 +185,16 @@ ALTER TABLE `vacunas`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `cita`
+--
+ALTER TABLE `cita`
+  MODIFY `IdCita` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT de la tabla `paciente`
 --
 ALTER TABLE `paciente`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `vacunas`
